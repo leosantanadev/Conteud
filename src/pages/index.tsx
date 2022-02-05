@@ -1,4 +1,4 @@
-import { Flex, Heading, Stack } from '@chakra-ui/react'
+import { Container, Flex, Heading, Stack } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import { AboutUsSection } from '../components/AboutUsSection'
 import { AdvantagesSection } from '../components/AdvantagesSection'
@@ -34,11 +34,11 @@ export default function Home<NextPage> () {
       </Flex>
 
       <Flex py={{ base: 24 }} alignItems='center' width='100%' minHeight='500px' height='100%' position='relative' bg='gray.50'>
-        <Stack display='flex' alignItems='center' width='100%' px={{ base: 12, md: 24 }} spacing='14'>
-          <Heading color='gray.700'>Nossos clientes e parceiros</Heading>
+        <Container display='flex' flexDirection='column' maxW={'8xl'} px={{ base: '10px', md: 24 }}>
+          <Heading color='gray.700' textAlign='center' mb='14'>Nossos clientes e parceiros</Heading>
 
             <Slick />
-        </Stack>
+        </Container>
       </Flex>
 
       <Flex py={{ base: 24 }} alignItems='center' width='100%' minHeight='600px' height='100%' position='relative' bg='blue.500'>
