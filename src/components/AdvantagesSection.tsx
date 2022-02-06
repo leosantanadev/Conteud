@@ -1,3 +1,5 @@
+import { ReactElement, ReactNode } from 'react';
+
 import {
     Container,
     SimpleGrid,
@@ -12,24 +14,37 @@ import {
     ListItem,
 } from '@chakra-ui/react';
 
-interface AdvantagesSectionProps {
-    isReverseSectionContent?: boolean;
+type AdvantagesSectionListData = {
+    title: string;
+    text: string;
+    icon: any;
 }
 
-export function AdvantagesSection({ isReverseSectionContent = false }: AdvantagesSectionProps) {
+type AdvantagesSectionData = {
+    image: string;
+    sectionTitle: string;
+    list: AdvantagesSectionListData[];
+}
+
+interface AdvantagesSectionProps {
+    isReverseSectionContent?: boolean;
+    data: AdvantagesSectionData;
+}
+
+export function AdvantagesSection({ isReverseSectionContent = false, data }: AdvantagesSectionProps) {
     return (
         <Container maxW={'8xl'}>
-            <SimpleGrid columns={{ base: 1, lg: 2 }} row={{ base: 2, lg: 'auto' }} spacing={{ base: 36, lg: 12}}>
+            <SimpleGrid columns={{ base: 1, lg: 2 }} row={{ base: 2, lg: 'auto' }} spacing={{ base: 24, lg: 12 }}>
                 {isReverseSectionContent 
                 ? (
                     <>
                         <GridItem colStart={{ base: 1, lg: 2 }}  rowStart={{ base: 1, lg: 1 }}>
                             <Flex alignItems='center' justifyContent='center' height='100%' p='4'>
                                 <Image
-                                    width={{ base: '100%', md: '90%' }}
+                                    width={{ base: '80%', md: '75%' }}
                                     rounded={'md'}
                                     alt={'feature image'}
-                                    src='/background.svg'
+                                    src={data.image}
                                     objectFit={'cover'}
                                 />
                             </Flex>
@@ -38,60 +53,36 @@ export function AdvantagesSection({ isReverseSectionContent = false }: Advantage
                         <GridItem colStart={{ base: 1, lg: 1 }}  rowStart={{ base: 2, lg: 1 }}>
                             <Stack spacing='8'>
                                 <Text
-                                textTransform={'uppercase'}
-                                color={'green.500'}
-                                fontWeight={600}
-                                fontSize={'sm'}
-                                bg='green.50'
-                                p={2}
-                                alignSelf={'flex-start'}
-                                rounded={'md'}
-                            >
-                                Vantagens para o seu cliente
-                            </Text>
+                                    textTransform={'uppercase'}
+                                    color={'green.500'}
+                                    fontWeight={600}
+                                    fontSize={'sm'}
+                                    bg='green.50'
+                                    p={2}
+                                    alignSelf={'flex-start'}
+                                    rounded={'md'}
+                                >
+                                    {data.sectionTitle}
+                                </Text>
                                 
                                 <List spacing='6'>
-                                    <ListItem bg='blue.50' p='6' rounded='2xl'>
-                                        <Stack display='flex'alignItems='center' direction='row' spacing={{ base: 0, md: '6' }}>
-                                            <Flex borderRadius='md' display={{ base: 'none', md: 'flex' }} alignItems='center' justifyContent='center' bg='blue.100' color='blue.100' w={{ md: 10, lg: 12 }} h={10} >
-                                                <Icon color='blue.500' w={5} h={5}/>
-                                            </Flex>
-                                            <Stack spacing={1}>
-                                                <Heading color='green.500' fontSize={[18, 20, 22]}>ecommerce</Heading>
-                                                <Text color='gray.600' fontSize={{ base: 'sm', md: 'md' }}> 
-                                                    Os canais online elevam sua marca e inverte a curva do custo de marketing a longo prazo.
-                                                </Text>
-                                            </Stack>
-                                        </Stack>
-                                    </ListItem>
-
-                                    <ListItem bg='blue.50' p='6' rounded='2xl'>
-                                        <Stack display='flex'alignItems='center' direction='row' spacing={{ base: 0, md: '6' }}>
-                                            <Flex borderRadius='md' display={{ base: 'none', md: 'flex' }} alignItems='center' justifyContent='center' bg='blue.100' color='blue.100' w={{ md: 10, lg: 12 }} h={10} >
-                                                <Icon color='blue.500' w={5} h={5}/>
-                                            </Flex>
-                                            <Stack spacing={1}>
-                                                <Heading color='green.500' fontSize={[18, 20, 22]}>ecommerce</Heading>
-                                                <Text color='gray.600' fontSize={{ base: 'sm', md: 'md' }}> 
-                                                    Os canais online elevam sua marca e inverte a curva do custo de marketing a longo prazo.
-                                                </Text>
-                                            </Stack>
-                                        </Stack>
-                                    </ListItem>
-
-                                    <ListItem bg='blue.50' p='6' rounded='2xl'>
-                                        <Stack display='flex'alignItems='center' direction='row' spacing={{ base: 0, md: '6' }}>
-                                            <Flex borderRadius='md' display={{ base: 'none', md: 'flex' }} alignItems='center' justifyContent='center' bg='blue.100' color='blue.100' w={{ md: 10, lg: 12 }} h={10} >
-                                                <Icon color='blue.500' w={5} h={5}/>
-                                            </Flex>
-                                            <Stack spacing={1}>
-                                                <Heading color='green.500' fontSize={[18, 20, 22]}>ecommerce</Heading>
-                                                <Text color='gray.600' fontSize={{ base: 'sm', md: 'md' }}> 
-                                                    Os canais online elevam sua marca e inverte a curva do custo de marketing a longo prazo.
-                                                </Text>
-                                            </Stack>
-                                        </Stack>
-                                    </ListItem>
+                                    {data.list.map(item => (
+                                        <>
+                                            <ListItem bg='blue.600' p='6' rounded='2xl'>
+                                                <Stack display='flex'alignItems='center' direction='row' spacing={{ base: 0, md: '6' }}>
+                                                    <Flex borderRadius='md' display={{ base: 'none', md: 'flex' }} alignItems='center' justifyContent='center' color='blue.100' w={{ md: 10, lg: 12 }} h={10} >
+                                                        <Icon as={item.icon} color='green.500' w={6} h={6}/>
+                                                    </Flex>
+                                                    <Stack spacing={1}>
+                                                        <Heading color='green.500' fontSize={[18, 20, 22]}>{item.title}</Heading>
+                                                        <Text color={'gray.400'} fontSize={{ base: 'sm', md: 'sm' }}> 
+                                                            {item.text}
+                                                        </Text>
+                                                    </Stack>
+                                                </Stack>
+                                            </ListItem>
+                                        </>
+                                    ))}
                                 </List>
                             </Stack>
                         </GridItem>
@@ -99,78 +90,54 @@ export function AdvantagesSection({ isReverseSectionContent = false }: Advantage
                 ) 
                 : (
                     <>
-                    <GridItem>
-                        <Flex alignItems='center' justifyContent='center' height='100%' p='4'>
-                            <Image
-                                width={{ base: '100%', md: '90%' }}
-                                rounded={'md'}
-                                alt={'feature image'}
-                                src='/background.svg'
-                                objectFit={'cover'}
-                            />
-                        </Flex>
-                    </GridItem>
+                        <GridItem>
+                            <Flex alignItems='center' justifyContent='center' height='100%' p='4'>
+                                <Image
+                                    width={{ base: '80%', md: '75%' }}
+                                    rounded={'md'}
+                                    alt={'feature image'}
+                                    src={data.image}
+                                    objectFit={'cover'}
+                                />
+                            </Flex>
+                        </GridItem>
 
-                    <GridItem>
-                        <Stack spacing='8'>
-                            <Text
-                                textTransform={'uppercase'}
-                                color={'green.50'}
-                                fontWeight={600}
-                                fontSize={'sm'}
-                                bg='green.500'
-                                p={2}
-                                alignSelf={'flex-start'}
-                                rounded={'md'}
-                            >
-                                Vantagens para o seu cliente
-                            </Text>
-                            
-                            <List spacing='6'>
-                                <ListItem bg='blue.600' p='6' rounded='2xl'>
-                                    <Stack display='flex'alignItems='center' direction='row' spacing={{ base: 0, md: '6' }}>
-                                        <Flex borderRadius='md' display={{ base: 'none', md: 'flex' }} alignItems='center' justifyContent='center' bg='gray.200' color='blue.100' w={{ md: 10, lg: 12 }} h={10} >
-                                            <Icon color='green.500' w={5} h={5}/>
-                                        </Flex>
-                                        <Stack spacing={1}>
-                                            <Heading color='green.500' fontSize={[18, 20, 22]}>ecommerce</Heading>
-                                            <Text color={'gray.400'} fontSize={{ base: 'sm', md: 'md' }}> 
-                                                Os canais online elevam sua marca e inverte a curva do custo de marketing a longo prazo.
-                                            </Text>
-                                        </Stack>
-                                    </Stack>
-                                </ListItem>
-
-                                <ListItem bg='blue.600' p='6' rounded='2xl'>
-                                    <Stack display='flex'alignItems='center' direction='row' spacing={{ base: 0, md: '6' }}>
-                                        <Flex borderRadius='md' display={{ base: 'none', md: 'flex' }} alignItems='center' justifyContent='center' bg='gray.200' color='blue.100' w={{ md: 10, lg: 12 }} h={10} >
-                                            <Icon color='green.500' w={5} h={5}/>
-                                        </Flex>
-                                        <Stack spacing={1}>
-                                            <Heading color='green.500' fontSize={[18, 20, 22]}>ecommerce</Heading>
-                                            <Text color={'gray.400'} fontSize={{ base: 'sm', md: 'md' }}> 
-                                                Os canais online elevam sua marca e inverte a curva do custo de marketing a longo prazo.
-                                            </Text>
-                                        </Stack>
-                                    </Stack>
-                                </ListItem>
-
-                                <ListItem bg='blue.600' p='6' rounded='2xl'>
-                                    <Stack display='flex'alignItems='center' direction='row' spacing={{ base: 0, md: '6' }}>
-                                        <Flex borderRadius='md' display={{ base: 'none', md: 'flex' }} alignItems='center' justifyContent='center' bg='gray.200' color='blue.100' w={{ md: 10, lg: 12 }} h={10} >
-                                            <Icon color='green.500' w={5} h={5}/>
-                                        </Flex>
-                                        <Stack spacing={1}>
-                                            <Heading color='green.500' fontSize={[18, 20, 22]}>ecommerce</Heading>
-                                            <Text color={'gray.400'} fontSize={{ base: 'sm', md: 'md' }}> 
-                                                Os canais online elevam sua marca e inverte a curva do custo de marketing a longo prazo.
-                                            </Text>
-                                        </Stack>
-                                    </Stack>
-                                </ListItem>
-                            </List>
-                        </Stack>
-                    </GridItem>
+                        <GridItem>
+                            <Stack spacing='8'>
+                                <Text
+                                    textTransform={'uppercase'}
+                                    color={'green.50'}
+                                    fontWeight={600}
+                                    fontSize={'sm'}
+                                    bg='green.500'
+                                    p={2}
+                                    alignSelf={'flex-start'}
+                                    rounded={'md'}
+                                >
+                                    {data.sectionTitle}
+                                </Text>
+                                
+                                <List spacing='6'>
+                                    {data.list.map(item => (
+                                        <>
+                                            <ListItem bg='blue.50' p='6' rounded='2xl'>
+                                                <Stack display='flex'alignItems='center' direction='row' spacing={{ base: 0, md: '6' }}>
+                                                    <Flex borderRadius='md' display={{ base: 'none', md: 'flex' }} alignItems='center' justifyContent='center' color='blue.100' w={{ md: 10, lg: 12 }} h={10} >
+                                                        <Icon as={item.icon} color='blue.500' w={6} h={6}/>
+                                                    </Flex>
+                                                    <Stack spacing={1}>
+                                                        <Heading color='green.500' fontSize={[16, 18]}>{item.title}</Heading>
+                                                        <Text color='gray.600' fontSize={{ base: 'sm', md: 'sm' }}> 
+                                                            {item.text}
+                                                        </Text>
+                                                    </Stack>
+                                                </Stack>
+                                            </ListItem>
+                                        </>
+                                    ))}
+                                </List>
+                            </Stack>
+                        </GridItem>
                     </>
                 )}
                 

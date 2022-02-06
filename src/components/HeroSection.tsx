@@ -59,24 +59,10 @@ export function HeroSection() {
             </Heading>
 
             <Text color={'gray.300'} fontSize='md'>
-              Snippy is a rich coding snippets app that lets you create your own
-              code snippets, categorize them, and even sync them in the cloud so
-              you can use them anywhere. All that is free!
+              Somos uma consultoria empresarial que vai te ajudar a fazer o que precisa ser feito
+              na busca do resultado.
             </Text>
           </Stack>
-
-          <Box>
-            <Button
-              rounded='2xl'
-              size={'lg'}
-              fontWeight={'normal'}
-              color='whiteAlpha.900'
-              px={6}
-              bg={'green.500'}
-              _hover={{ bg: 'green.600' }}>
-              Get started
-            </Button>
-          </Box>
         </Stack>
 
         <Flex

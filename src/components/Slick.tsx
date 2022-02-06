@@ -14,8 +14,8 @@ export default class Slick extends Component {
       slidesToShow: 3,
       slidesToScroll: 1,
       autoplay: true,
-      speed: 3000,
-      autoplaySpeed: 3000,
+      speed: 2000,
+      autoplaySpeed: 2000,
       cssEase: "ease",
       responsive: [
         {
@@ -41,28 +41,19 @@ export default class Slick extends Component {
         }
       ]
     };
+
+    const urls = ['/logos/mercadoLivre.png', '/logos/climaster.png', '/logos/arquiteturaTermica.png', '/logos/mercadoLivre.png', '/logos/mercadoLivre.png']
     
     return (
       <Box width='100%' p='8' borderRadius='2xl'>
         <Slider {...settings}>
-          <Box>
-            <Image width={{ base: '60%', md: '80%', xl: '70%' }} src='/mercadoLivre.png'/>
-          </Box>
-          <Box>
-            <Image width={{ base: '60%', md: '80%', xl: '70%' }} src='/mercadoLivre.png'/>
-          </Box>
-          <Box>
-            <Image width={{ base: '60%', md: '80%', xl: '70%' }}  src='/mercadoLivre.png'/>
-          </Box>
-          <Box>
-            <Image width={{ base: '60%', md: '80%', xl: '70%' }} src='/mercadoLivre.png'/>
-          </Box>
-          <Box>
-            <Image width={{ base: '60%', md: '80%', xl: '70%' }} src='/mercadoLivre.png'/>
-          </Box>
-          <Box>
-            <Image width={{ base: '60%', md: '80%', xl: '70%' }} src='/mercadoLivre.png'/>
-          </Box>
+          {urls.map(url => (
+            <>
+            <Box>
+              <Image width={{ base: '60%', md: '80%', xl: '70%' }} src={url} />
+            </Box>
+            </>
+          ))}
         </Slider>
       </Box>
     );
