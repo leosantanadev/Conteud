@@ -59,7 +59,7 @@ export function SoluctionSection() {
                 </Stack>
 
                 <Stack spacing='3'>
-                    <Text as='span' fontSize={14} fontWeight='bold' ml='3' color='green.500'>Clique na categoria e veja nossas soluçoes *</Text>
+                    <Text as='span' fontSize={14} fontWeight='bold' ml='3' color='green.500'>Clique na categoria e veja nossas soluções *</Text>
                     <Accordion allowToggle defaultIndex={[0]} bg='blue.50' p='4' borderRadius='lg'>
                         {soluctionsData.map(data => (
                             <SoluctionContainer
