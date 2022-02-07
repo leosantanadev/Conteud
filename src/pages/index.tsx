@@ -83,7 +83,7 @@ export default function Home<NextPage> () {
         <AdvantagesSection isReverseSectionContent data={FirstAdvantagesSectionData}/>
       </Flex>
 
-      <Flex py={{ base: 24 }} alignItems='center' width='100%' minHeight='500px' height='100%' position='relative' bg='gray.50'>
+      <Flex py={{ base: 24 }} alignItems='center' width='100%' minHeight='500px' height='100%' position='relative' bg='white'>
         <Container display='flex' flexDirection='column' maxW={'8xl'} px={{ base: '10px', md: 24 }}>
           <Heading color='gray.700' textAlign='center' mb='14'>Nossos clientes e parceiros</Heading>
 
