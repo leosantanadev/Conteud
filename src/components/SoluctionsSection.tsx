@@ -36,7 +36,7 @@ const soluctionsData = [
 export function SoluctionSection() {
     return (
         <Container maxW={'8xl'}>
-        <SimpleGrid py={{ base: 50, md: 56 }} columns={{ base: 1, md: 2 }} spacing={10}>
+        <SimpleGrid py={{ base: 38, md: 34 }} columns={{ base: 1, md: 2 }} spacing={10}>
             <Stack spacing='12'>
                 <Stack spacing='4'>
                     <Text
@@ -51,10 +51,10 @@ export function SoluctionSection() {
                     >
                         Nossas soluções
                     </Text>
-                    <Heading color='gray.700'>Algumas soluões da nossa empresa</Heading>
+                    <Heading color='gray.700'>Algumas soluções da nossa empresa</Heading>
                     <Text color={'gray.500'} fontSize={'md'}>
                         Nossa equipe especializada junto com o seu time ira resolver o seu problema e 
-                        implementaremos soluções que ajudarão seu ambiente de trabalho, algumas soluçoes como:
+                        implementaremos soluções que ajudarão seu ambiente de trabalho, algumas soluções como:
                     </Text>
                 </Stack>
 

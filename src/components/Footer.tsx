@@ -7,7 +7,7 @@ import {
     useColorModeValue,
     VisuallyHidden,
   } from '@chakra-ui/react';
-  import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+  import { FaLinkedin } from 'react-icons/fa';
   import { ReactNode } from 'react';
 import { Logo } from './Logo';
   
@@ -22,7 +22,7 @@ import { Logo } from './Logo';
   }) => {
     return (
       <chakra.button
-        bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
+        bg='blackAlpha.100'
         rounded={'full'}
         w={8}
         h={8}
@@ -33,9 +33,7 @@ import { Logo } from './Logo';
         alignItems={'center'}
         justifyContent={'center'}
         transition={'background 0.3s ease'}
-        _hover={{
-          bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-        }}>
+        _hover={{ color: 'whiteAlpha.600' }}>
         <VisuallyHidden>{label}</VisuallyHidden>
         {children}
       </chakra.button>
@@ -56,16 +54,10 @@ import { Logo } from './Logo';
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
           <Logo />
-          <Text>© 2020 Conteud. All rights reserved</Text>
+          <Text>Av. Paulista, 1842 - conjunto 155 - CEP 01310-200 - Bela Vista - Sao Paulo/Sp</Text>
           <Stack direction={'row'} spacing={6}>
-            <SocialButton label={'Twitter'} href={'#'}>
-              <FaTwitter />
-            </SocialButton>
-            <SocialButton label={'YouTube'} href={'#'}>
-              <FaYoutube />
-            </SocialButton>
-            <SocialButton label={'Instagram'} href={'#'}>
-              <FaInstagram />
+            <SocialButton label={'Linkedin'} href={'https://br.linkedin.com/company/conteud'}>
+              <FaLinkedin fontSize={25}/>
             </SocialButton>
           </Stack>
         </Container>

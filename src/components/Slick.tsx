@@ -12,7 +12,7 @@ export default class Slick extends Component {
       dots: true,
       infinite: true,
       slidesToShow: 3,
-      slidesToScroll: 1,
+      slidesToScroll: 2,
       autoplay: true,
       speed: 2000,
       autoplaySpeed: 2000,
@@ -42,7 +42,17 @@ export default class Slick extends Component {
       ]
     };
 
-    const urls = ['/logos/mercadoLivre.png', '/logos/climaster.png', '/logos/arquiteturaTermica.png', '/logos/mercadoLivre.png', '/logos/mercadoLivre.png']
+    const urls = [
+      '/logos/mercadoLivre.png', 
+      '/logos/climaster.png', 
+      '/logos/maxiar.jpg', 
+      '/logos/shoppub.svg', 
+      '/logos/tray.png',
+      '/logos/arquiteturaTermica.png',
+      '/logos/unica.jpg',
+      '/logos/adias.png',
+      '/logos/ypay.png',
+    ]
     
     return (
       <Box width='100%' p='8' borderRadius='2xl'>
