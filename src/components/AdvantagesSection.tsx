@@ -67,21 +67,19 @@ export function AdvantagesSection({ isReverseSectionContent = false, data }: Adv
                                 
                                 <List spacing='6'>
                                     {data.list.map(item => (
-                                        <>
-                                            <ListItem key={item.title} bg='blue.600' p='6' rounded='2xl'>
-                                                <Stack display='flex'alignItems='center' direction='row' spacing={{ base: 0, md: '6' }}>
-                                                    <Flex borderRadius='md' display={{ base: 'none', md: 'flex' }} alignItems='center' justifyContent='center' color='blue.100' w={{ md: 10, lg: 12 }} h={10} >
-                                                        <Icon as={item.icon} color='green.500' w={6} h={6}/>
-                                                    </Flex>
-                                                    <Stack spacing={1}>
-                                                        <Heading color='green.500' fontSize={[18, 20, 22]}>{item.title}</Heading>
-                                                        <Text color={'gray.400'} fontSize={{ base: 'sm', md: 'sm' }}> 
-                                                            {item.text}
-                                                        </Text>
-                                                    </Stack>
+                                        <ListItem key={item.title} bg='blue.600' p='6' rounded='2xl'>
+                                            <Stack display='flex'alignItems='center' direction='row' spacing={{ base: 0, md: '6' }}>
+                                                <Flex borderRadius='md' display={{ base: 'none', md: 'flex' }} alignItems='center' justifyContent='center' color='blue.100' w={{ md: 10, lg: 12 }} h={10} >
+                                                    <Icon as={item.icon} color='green.500' w={6} h={6}/>
+                                                </Flex>
+                                                <Stack spacing={1}>
+                                                    <Heading color='green.500' fontSize={[18, 20, 22]}>{item.title}</Heading>
+                                                    <Text color={'gray.400'} fontSize={{ base: 'sm', md: 'sm' }}> 
+                                                        {item.text}
+                                                    </Text>
                                                 </Stack>
-                                            </ListItem>
-                                        </>
+                                            </Stack>
+                                        </ListItem>
                                     ))}
                                 </List>
                             </Stack>
