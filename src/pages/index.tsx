@@ -75,11 +75,11 @@ export default function Home<NextPage> () {
         <FeaturesSection />
       </Flex>
 
-      <Flex py={{ base: 24 }} alignItems='center' width='100%' minHeight='900px' height='100%' position='relative' bg='gray.50'>
+      <Flex py={{ base: 24 }} alignItems='center' width='100%' minHeight='800px' height='100%' position='relative' bg='gray.50'>
         <AdvantagesSection data={SecondAdvantagesSectionData}/>
       </Flex>
 
-      <Flex py={{ base: 24 }} alignItems='center' width='100%' minHeight='900px' height='100%' position='relative' bg='blue.500'>
+      <Flex py={{ base: 24 }} alignItems='center' width='100%' minHeight='800px' height='100%' position='relative' bg='blue.500'>
         <AdvantagesSection isReverseSectionContent data={FirstAdvantagesSectionData}/>
       </Flex>
 
